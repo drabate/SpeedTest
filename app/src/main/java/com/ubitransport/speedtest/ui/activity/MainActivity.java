@@ -2,16 +2,12 @@ package com.ubitransport.speedtest.ui.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -54,8 +50,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSION_LOCATION = 120;
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int REQUEST_CHECK_SETTINGS = 121;
     private ActionBar actionBar;
     private ShowAverageSpeedFragment showAverageSpeedFragment;
     private ShowSpeedWhenMovingFragment showSpeedWhenMovingFragment;
@@ -120,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         LocationManager locationManager =
                 (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        if(locationManager != null) {
+        if (locationManager != null) {
             final boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
             if (!gpsEnabled) {
@@ -200,10 +194,10 @@ public class MainActivity extends AppCompatActivity {
             super.onLocationResult(locationResult);
             long speed = 0;
             //If we already have a location, we calculate the speed
-            if(oldLocation !=null) {
+            if (oldLocation != null) {
                 double timeDifference = (double) (locationResult.getLastLocation().getTime() - oldLocation.getTime());
                 double distance = (double) oldLocation.distanceTo(locationResult.getLastLocation());
-                speed = Math.round(((distance/(double)1000) / (timeDifference/(double)3600000)));
+                speed = Math.round(((distance / (double) 1000) / (timeDifference / (double) 3600000)));
             }
 
             oldLocation = locationResult.getLastLocation();
@@ -217,9 +211,9 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 changeFragment(showAverageSpeedFragment, R.string.title_when_not_moving);
                 long averageSpeed = MathUtils.calculateAverage(speedsList);
-                if(averageSpeed > 0) {
+                if (averageSpeed > 0) {
                     showAverageSpeedFragment.setAverageSpeedMessage(
-                            String.format(getString(R.string.format_average_speed),
+                            String.format(getString(R.string.format_speed),
                                     String.valueOf(averageSpeed)));
                 }
                 speedsList = new ArrayList<>();
