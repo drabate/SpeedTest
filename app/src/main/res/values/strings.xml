@@ -4,4 +4,10 @@
     <string name="title_when_not_moving">Vitesse moyenne</string>
     <string name="still_no_average">Aucune vitesse moyenne</string>
     <string name="no_location_access">Accès à la localisation refusé</string>
+    <string name="format_average_speed">Vitesse moyenne : %s km/h</string>
+    <string name="title_when_moving">Vitesse</string>
+    <string name="format_speed">Vitesse instantanée : %s km/h</string>
+    <string name="message_enable_gps">Le GPS doit être activé pour que l\'application fonctionne</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
