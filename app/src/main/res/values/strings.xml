@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SpeedTest</string>
+
+    <string name="title_when_not_moving">Vitesse moyenne</string>
+    <string name="still_no_average">Aucune vitesse moyenne</string>
+    <string name="no_location_access">Accès à la localisation refusé</string>
+    <string name="title_when_moving">Vitesse</string>
+    <string name="format_speed">%s km/h</string>
+    <string name="message_enable_gps">Le GPS doit être activé pour que l\'application fonctionne</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="label_average_speed">Vitesse moyenne sur le dernier tronçon :</string>
+    <string name="label_instant_speed">Vitesse instantanée :</string>
+</resources>
